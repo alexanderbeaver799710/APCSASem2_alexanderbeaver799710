@@ -9,5 +9,5 @@ comment2.target=void\ main(java.lang.String[])
 comment2.text=\r\n\ The\ main\ method\r\n
 comment3.params=a
 comment3.target=int[]\ sort(int[])
-comment3.text=\r\n\ Sort\ the\ inputed\ array\r\n\ @param\ \ \ a\ \ \ the\ array\ to\ sort\r\n\ @return\ \ \ \ \ \ the\ sorted\ array\r\n
+comment3.text=\r\n\ Sort\ the\ inputed\ array\r\n\ @param\ \ \ a\ \ \ array\ to\ sort\r\n\ @return\ \ \ \ \ \ sorted\ array\r\n
 numComments=4

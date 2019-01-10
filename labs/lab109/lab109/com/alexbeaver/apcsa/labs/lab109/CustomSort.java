@@ -25,14 +25,22 @@ public class CustomSort
      * The main method
      */
     public static void main(String[] args){
-        int[] values = {254,971,8,1678,86868,100,199};
+        //Sort preset values
+        int[] values = {254,971,8,1678,86868,100,199,1666};
         System.out.println(Arrays.toString(sort(values)));
+        //Sort random values
+        int[] randomVals = new int[1000];
+        //  Generate random values
+        for(int i = 0; i < randomVals.length; i++){
+            randomVals[i] =(int)( Math.random()*1000);
+        }
+        System.out.println(Arrays.toString(sort(randomVals)));
         
     }
     /**
      * Sort the inputed array
-     * @param   a   the array to sort
-     * @return      the sorted array
+     * @param   a   array to sort
+     * @return      sorted array
      */
     public static int[] sort(int[] a){
         for(int i = 0; i < a.length; i++){

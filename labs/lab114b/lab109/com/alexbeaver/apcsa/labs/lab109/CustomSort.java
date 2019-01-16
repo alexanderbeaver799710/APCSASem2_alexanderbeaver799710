@@ -46,6 +46,7 @@ public class CustomSort
     public static ArrayList<Integer> sort(ArrayList<Integer> a){
         for(int i = 0; i < a.size(); i++){
             for(int x = 0; x < a.size(); x++){
+                bm.compare();
                 if(i < x && a.get(i)>a.get(x)){
                     int bufA = a.get(i);
                     int bufB = a.get(x);

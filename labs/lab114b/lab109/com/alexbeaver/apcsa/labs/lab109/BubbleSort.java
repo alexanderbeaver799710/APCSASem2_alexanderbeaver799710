@@ -55,6 +55,7 @@ public class BubbleSort
             return a;
         }
         for(int i = 0; i < limit-1; i++){
+            bm.compare();
             if(a.get(i)>a.get(i+1)){
                     bm.itar();
                     int bufA = a.get(i);

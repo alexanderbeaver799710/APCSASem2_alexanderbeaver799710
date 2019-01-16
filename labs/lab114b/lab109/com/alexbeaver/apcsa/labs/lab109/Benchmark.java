@@ -16,6 +16,7 @@ public class Benchmark
     private long end;
     private long diff;
     private int itars = 0;
+    private int compares = 0;
     /**
      * Constructor for objects of class Benchmark
      */
@@ -35,9 +36,12 @@ public class Benchmark
     /**
      * Iterate for a swap
      */
-    public void itar(){
-        itars += 1;
-    }
+    public void itar(){itars += 1;}
+    
+    /**
+     * Iterate compares
+     */
+   public void compare(){compares += 1;}
     /**
      * End the benchmark
      */
@@ -54,6 +58,7 @@ public class Benchmark
         System.out.println("End  : "+end);
         System.out.println("Time : "+diff);
         System.out.println("Swap : "+itars);
+        System.out.println("Comp : "+compares);
     }
     
     

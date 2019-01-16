@@ -56,6 +56,7 @@ public class InsertSort
             return a;
         }
         for(int i = limit; i > 0; i--){
+            bm.compare();
             if(a.get(i)<a.get(i-1)){
                     bm.itar();
                     int bufA = a.get(i);

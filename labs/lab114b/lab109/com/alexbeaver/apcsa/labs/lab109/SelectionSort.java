@@ -63,7 +63,7 @@ public class SelectionSort
         int min = Integer.MAX_VALUE;
         int minIndex = Integer.MAX_VALUE;
         for(int i = limit; i < a.size(); i++){
-
+            bm.compare();
             if(a.get(i)<min){
                 min = a.get(i);
                 minIndex = i;

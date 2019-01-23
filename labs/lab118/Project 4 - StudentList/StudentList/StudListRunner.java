@@ -55,7 +55,10 @@ public class StudListRunner
 
             }
             else if(choice.equals(MenuOptions.SORTLIST.get())){
-                
+                sort();
+            }
+            else if(choice.equals(MenuOptions.SORTBYNAME.get())){
+                sortByName();
             }
             else if(choice.equals(MenuOptions.BYPASS.get())){
                 runLoop = false;
@@ -86,7 +89,8 @@ public class StudListRunner
         System.out.println("4. Edit Student");
         System.out.println("5. Clear List");
         System.out.println("6. Print Student");
-        System.out.println("7. Sort By Student ID");
+        System.out.println("7. Sort By GPA");
+        System.out.println("8. Sort By Name");
 
 
         Scanner scanner = new Scanner(System.in);
@@ -196,11 +200,17 @@ public class StudListRunner
     }
     
     public static void sort(){
+        
         students.sortByGPA();
         printAll();
-        Scanner s = new Scanner(System.in);
+
         ConsoleMethods.waitForInput();
     
+    }
+    public static void sortByName(){
+        students.sortByName();
+        printAll();
+        ConsoleMethods.waitForInput();
     }
     /**
      * UI TO print a given student

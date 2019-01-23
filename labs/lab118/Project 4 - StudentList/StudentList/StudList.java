@@ -189,6 +189,7 @@ public class StudList
         }
         
         mergeSort(stuList,studentList.size());
+        this.studentList = new ArrayList<Student>(Arrays.asList(stuList));
     }
     public static void merge(Student[] a, Student[] l, Student[] r, int left, int right){
         int i = 0, j = 0, k = 0;
@@ -230,6 +231,7 @@ public class StudList
         }
         
         mergeSortByName(stuList,studentList.size());
+        this.studentList = new ArrayList<Student>(Arrays.asList(stuList));
     }
     public static int compareNames(String a, String b, int ai, int bi){
         if(ai >= a.length() || bi >= b.length()){
@@ -285,7 +287,77 @@ public class StudList
         mergeSortByName(r,n-mid);
         mergeByName(a, l, r, mid, n-mid);
     }
-
+    public void searchByStudentID(){
+        Student[] stuList = new Student[studentList.size()];
+        for(int i = 0; i < stuList.length; i++){
+            stuList[i] = studentList.get(i);
+        }
+        
+        mergeSortByID(stuList,studentList.size());
+        this.studentList = new ArrayList<Student>(Arrays.asList(stuList));
+    }
+    public int searchByIDSubsection(Student[] a, int l, int r, int dest){
+        if(r-l <= 1){
+            return r;
+        }
+        if(dest < a[(l+r)/2].getStuNumber()){
+            
+        }
+    }
+    public static int compareIDs(String a, String b, int ai, int bi){
+        if(ai >= a.length() || bi >= b.length()){
+            //Overflow
+            return 2;
+        }
+        if(a.charAt(ai) == ',' || a.charAt(ai) == ' '){
+            return compareNames(a,b,ai+1,bi);
+        }
+        if(b.charAt(bi) == ',' || b.charAt(bi) == ' '){
+            return compareNames(a,b,ai,bi+1);
+        }
+        if(a.charAt(ai) > b.charAt(bi)){
+            return 0;
+        }
+        else if(a.charAt(ai) < b.charAt(bi)){
+            return 1;
+        }
+        else{
+            return compareNames(a,b,ai+1,bi+1);
+        }
+    }
+    public static void mergeByID(Student[] a, Student[] l, Student[] r, int left, int right){
+        int i = 0, j = 0, k = 0;
+        while(i < left && j < right){
+          
+            if(l[i].getStuNumber() <= r[j].getStuNumber()){
+                a[k++] = l[i++];
+              
+            }
+            else{
+                a[k++] = r[j++];
+                
+            }
+        }
+        while (i < left){ a[k++] = l[i++];}
+        while (j < right) { a[k++] = r[j++];}
+    }
+    public static void mergeSortByID(Student[] a, int n){
+        if(n < 2){return;}
+        int mid = n/2;
+        Student[] l = new Student[mid];
+        Student[] r = new Student[n-mid];
+        for(int i = 0; i < mid; i++){
+            l[i]=a[i];
+            
+        }
+        for(int i = mid; i < n; i++){
+            r[i-mid] = a[i];
+            
+        }
+        mergeSortByID(l, mid);
+        mergeSortByID(r,n-mid);
+        mergeByID(a, l, r, mid, n-mid);
+    }
 
 
 

@@ -61,15 +61,8 @@ public class StudList
      * @param id
      */
     public void printStudent(int id){
-        for(Student studentObject : studentList){
-            if(studentObject.getStuNumber() == id){
-
-                System.out.println("Name: "+ studentObject.getFullName());
-                System.out.println("Student #: "+studentObject.getStuNumber());
-                System.out.println("GPA: "+studentObject.getGPA());
-
-            }
-        }
+        searchByStudentID(id);
+        
     }
     
     /**
@@ -287,7 +280,7 @@ public class StudList
         mergeSortByName(r,n-mid);
         mergeByName(a, l, r, mid, n-mid);
     }
-    public void searchByStudentID(){
+    public void searchByStudentID(int id){
         Student[] stuList = new Student[studentList.size()];
         for(int i = 0; i < stuList.length; i++){
             stuList[i] = studentList.get(i);
@@ -295,14 +288,22 @@ public class StudList
         
         mergeSortByID(stuList,studentList.size());
         this.studentList = new ArrayList<Student>(Arrays.asList(stuList));
+        int stuIndex = searchByIDSubsection(stuList,0,stuList.length,id);
+        Student studentObject = stuList[stuIndex];
+        System.out.println("Name: "+ studentObject.getFullName());
+        System.out.println("Student #: "+studentObject.getStuNumber());
+        System.out.println("GPA: "+studentObject.getGPA());
+
+        
     }
     public int searchByIDSubsection(Student[] a, int l, int r, int dest){
         if(r-l <= 1){
-            return r;
+            return l;
         }
         if(dest < a[(l+r)/2].getStuNumber()){
-            
+            return searchByIDSubsection(a,l,(l+r)/2,dest);
         }
+        return searchByIDSubsection(a,(l+r)/2,r,dest);
     }
     public static int compareIDs(String a, String b, int ai, int bi){
         if(ai >= a.length() || bi >= b.length()){

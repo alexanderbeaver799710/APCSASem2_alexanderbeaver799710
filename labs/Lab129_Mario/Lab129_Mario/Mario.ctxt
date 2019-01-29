@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=Mario
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Mario\ here.\r\n\r\n\ @author\ (Alex\ Beaver)\r\n\ @version\ (1/29)\r\n
+comment1.params=catchphrase\ speed
+comment1.target=Mario(java.lang.String,\ int)
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Mario\r\n
+comment2.params=speed
+comment2.target=void\ setSpeed(int)
+comment2.text=\r\n\ Sets\ the\ speed\ of\ the\ character\ to\ 2x\ the\ given\ amount\r\n\ @param\ \ \ speed\ \ \ half\ of\ the\ final\ speed\ of\ the\ character\r\n
+numComments=3

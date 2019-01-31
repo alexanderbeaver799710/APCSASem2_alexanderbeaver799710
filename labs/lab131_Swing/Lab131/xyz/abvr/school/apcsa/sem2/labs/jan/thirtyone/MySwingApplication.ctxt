@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=MySwingApplication
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ MySwingApplication\ here.\r\n\r\n\ @author\ (Alex\ Beaver)\r\n\ @version\ (Lab\ 131)\r\n
+comment1.params=
+comment1.target=MySwingApplication()
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ MySwingApplication\r\n
+comment2.params=
+comment2.target=void\ run()
+comment3.params=args
+comment3.target=void\ main(java.lang.String[])
+numComments=4

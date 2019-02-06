@@ -10,7 +10,7 @@ import javax.swing.*;
  * @author (your name)
  * @version (a version number or a date)
  */
-public class CanvasComponent extends JComponent implements MouseListener, MouseMotionListener
+public class CanvasComponent extends JComponent implements MouseListener, MouseMotionListener, ActionListener
 {
     // instance variables - replace the example below with your own
     private int x;
@@ -22,7 +22,16 @@ public class CanvasComponent extends JComponent implements MouseListener, MouseM
     private int mouseFromY;
     private int mouseToX;
     private int mouseToY;
+    
+    private int animationDeltaX = 1;
+    private int animationDeltaY = 0;
+    private int gutterX = 10;
+    private int gutterY = 10;
     private boolean shapeSelected;
+    protected Timer animationTimer;
+    
+    private static final int ANIMATION_TIMER_DELAY = 20;
+    
 
     /**
      * Constructor for objects of class CanvasComponent
@@ -30,12 +39,14 @@ public class CanvasComponent extends JComponent implements MouseListener, MouseM
     public CanvasComponent(int width, int height)
     {
         // initialise instance variables
-        this.x=0;
-        this.y=0;
+        this.x=0 + gutterX;
+        this.y=0 + gutterX;
         this.width = width;
         this.height = height;
         this.addMouseListener(this);
         this.addMouseMotionListener(this);
+        this.animationTimer = new Timer(ANIMATION_TIMER_DELAY,this);
+        this.animationTimer.start();
         
 
     }
@@ -46,7 +57,11 @@ public class CanvasComponent extends JComponent implements MouseListener, MouseM
         this.height = height;
         this.addMouseListener(this);
         this.addMouseMotionListener(this);
+
+        this.animationTimer = new Timer(ANIMATION_TIMER_DELAY,this);
+        this.animationTimer.start();
     }
+    
     public void paintComponent(Graphics g){
         g.setColor(Color.blue);
         g.fillRect(this.x,this.y,this.width,this.height);
@@ -62,11 +77,11 @@ public class CanvasComponent extends JComponent implements MouseListener, MouseM
     public void mousePressed(MouseEvent e){
         if(e.getX() < this.x + this.width && e.getX()> this.x && e.getY() < this.y + this.height && e.getY() > this.y){
             this.shapeSelected = true;
-            System.out.println("Shape selected");
+
         }
         else{
             this.shapeSelected = false;
-            System.out.println("Shape not selected");
+
         }
         this.mouseFromX = e.getX();
         this.mouseFromY = e.getY();
@@ -77,15 +92,15 @@ public class CanvasComponent extends JComponent implements MouseListener, MouseM
     public void mouseMoved(MouseEvent e){
     }
     public void mouseDragged(MouseEvent e){
-        System.out.println("MOUSE DRAGGED");
+
         if(this.shapeSelected){
             this.mouseToX = e.getX();
-        this.mouseToY = e.getY();
-        this.x += this.mouseToX - this.mouseFromX;
-        this.y += this.mouseToY - this.mouseFromY;
-        this.mouseFromX = e.getX();
-        this.mouseFromY = e.getY();
-        this.repaint();
+            this.mouseToY = e.getY();
+            this.x += this.mouseToX - this.mouseFromX;
+            this.y += this.mouseToY - this.mouseFromY;
+            this.mouseFromX = e.getX();
+            this.mouseFromY = e.getY();
+            this.repaint();
         }
         
     }
@@ -94,6 +109,38 @@ public class CanvasComponent extends JComponent implements MouseListener, MouseM
     public void mouseExited(MouseEvent e){
     }
    
+    public void actionPerformed(ActionEvent e){
+        Dimension componentSizeDimension = this.getSize();
+        if(this.x + this.width > componentSizeDimension.width-this.gutterX){
+            this.animationDeltaX = 0;
+            this.animationDeltaY = 1;
+            this.x = componentSizeDimension.width-this.width-this.gutterX;
+        }
+        else if (this.y + this.height > componentSizeDimension.height - this.gutterY){
+            this.animationDeltaX = -1;
+            this.animationDeltaY = 0;
+            this.y = componentSizeDimension.height - this.height - this.gutterY;
+        }
+        else if(this.x < this.gutterX){
+            this.animationDeltaX = 0;
+            this.animationDeltaY = -1;
+            this.x = gutterX;
+            this.y += this.animationDeltaY;
+
+        }
+        else if (this.y < gutterY){
+            this.animationDeltaX = 1;
+            this.animationDeltaY = 0;
+            this.x += this.animationDeltaY;
+            this.y = gutterY;
+        }
+        else{
+            this.x += animationDeltaX;
+            this.y += animationDeltaY;
+        }
+        this.repaint();
+        
+    }
     
     
 

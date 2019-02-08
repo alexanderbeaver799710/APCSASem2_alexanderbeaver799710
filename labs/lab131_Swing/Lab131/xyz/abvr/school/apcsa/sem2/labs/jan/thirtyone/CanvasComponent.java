@@ -7,10 +7,10 @@ import javax.swing.*;
 /**
  * Write a description of class CanvasComponent here.
  *
- * @author (your name)
+ * @author (Alex Beaver)
  * @version (a version number or a date)
  */
-public class CanvasComponent extends JComponent implements MouseListener, MouseMotionListener, ActionListener
+public class CanvasComponent extends JComponent implements MouseListener, MouseMotionListener, ActionListener, KeyListener
 {
     // instance variables - replace the example below with your own
     private int x;
@@ -22,6 +22,7 @@ public class CanvasComponent extends JComponent implements MouseListener, MouseM
     private int mouseFromY;
     private int mouseToX;
     private int mouseToY;
+    private int motionSpeed;
     
     private int animationDeltaX = 1;
     private int animationDeltaY = 0;
@@ -45,9 +46,10 @@ public class CanvasComponent extends JComponent implements MouseListener, MouseM
         this.height = height;
         this.addMouseListener(this);
         this.addMouseMotionListener(this);
+        this.addKeyListener(this);
         this.animationTimer = new Timer(ANIMATION_TIMER_DELAY,this);
         this.animationTimer.start();
-        
+        this.motionSpeed = 1;
 
     }
     public CanvasComponent(int x, int y, int width, int height){
@@ -57,7 +59,8 @@ public class CanvasComponent extends JComponent implements MouseListener, MouseM
         this.height = height;
         this.addMouseListener(this);
         this.addMouseMotionListener(this);
-
+        this.addKeyListener(this);
+        this.motionSpeed = 1;
         this.animationTimer = new Timer(ANIMATION_TIMER_DELAY,this);
         this.animationTimer.start();
     }
@@ -135,11 +138,23 @@ public class CanvasComponent extends JComponent implements MouseListener, MouseM
             this.y = gutterY;
         }
         else{
-            this.x += animationDeltaX;
-            this.y += animationDeltaY;
+            this.x += animationDeltaX * this.motionSpeed;
+            this.y += animationDeltaY * this.motionSpeed;
         }
         this.repaint();
         
+    }
+    
+    public void keyTyped(KeyEvent e){
+        char keyChar = e.getKeyChar();
+   
+        if(keyChar == '+'){this.motionSpeed += 1;}
+        else if (keyChar == '-'){if(this.motionSpeed>0){this.motionSpeed -= 1;}}
+       
+    }
+    public void keyPressed(KeyEvent e){
+    }
+    public void keyReleased(KeyEvent e){
     }
     
     

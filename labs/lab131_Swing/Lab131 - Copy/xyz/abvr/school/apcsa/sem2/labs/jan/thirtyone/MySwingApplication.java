@@ -1,57 +1,4 @@
-package xyz.abvr.school.apcsa.sem2.labs.jan.thirtyone;
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
-
-
-/**
- * Write a description of class CanvasComponent here.
- *
- * @author (Alex Beaver)
- * @version (a version number or a date)
- */
-public class CanvasComponent extends JComponent implements MouseListener, MouseMotionListener, ActionListener, KeyListener
-{
-    // instance variables - replace the example below with your own
-    private int x;
-    private int y;
-    private int height;
-    private int width;
-    
-    private int mouseFromX;
-    private int mouseFromY;
-    private int mouseToX;
-    private int mouseToY;
-    private int motionSpeed;
-    
-    private int animationDeltaX = 1;
-    private int animationDeltaY = 0;
-    private int gutterX = 10;
-    private int gutterY = 10;
-    private boolean shapeSelected;
-    protected Timer animationTimer;
-    
-    private static final int ANIMATION_TIMER_DELAY = 20;
-    
-
-    /**
-     * Constructor for objects of class CanvasComponent
-     */
-    public CanvasComponent(int width, int height)
-    {
-        // initialise instance variables
-        this.x=0 + gutterX;
-        this.y=0 + gutterX;
-        this.width = width;
-        this.height = height;
-        this.addMouseListener(this);
-        this.addMouseMotionListener(this);
-        this.addKeyListener(this);
-        this.animationTimer = new Timer(ANIMATION_TIMER_DELAY,this);
-        this.animationTimer.start();
-        this.motionSpeed = 1;
-
-    }
+package xyz.abvr.school.apcsa.sem2.labs.jan.thirtyone;import javax.swing.*;import java.awt.*;import java.awt.event.*;/** * Write a description of class MySwingApplication here. * * @author (Alex Beaver) * @version (Lab 131)*/public class MySwingApplication extends Object implements SwingConstants, Runnable{/*** Constructor for objects of class MySwingApplication*/private JFrame jFrame;public MySwingApplication(){this.jFrame = new JFrame("Demo Swing Application");this.jFrame.setSize(400,400);this.jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);CanvasComponent cc = new CanvasComponent(100,100);jFrame.add(cc);jFrame.setVisible(true);jFrame.addKeyListener(cc);}public void run(){}public static void main(String[] args){MySwingApplication mySwingApplicationSwing = new MySwingApplication();javax.swing.SwingUtilities.invokeLater(mySwingApplicationSwing);}}class CanvasComponent extends JComponent implements MouseListener, MouseMotionListener, ActionListener, KeyListener{private int x;private int y;private int height;private int width;private int mouseFromX;private int mouseFromY;private int mouseToX;private int mouseToY;private int motionSpeed;private int animationDeltaX = 1;private int animationDeltaY = 0;private int gutterX = 10;private int gutterY = 10;private boolean shapeSelected;protected Timer animationTimer; private static final int ANIMATION_TIMER_DELAY = 20;public CanvasComponent(int width, int height){this.x=0 + gutterX;this.y=0 + gutterX;this.width = width;this.height = height;this.addMouseListener(this);this.addMouseMotionListener(this);this.addKeyListener(this);this.animationTimer = new Timer(ANIMATION_TIMER_DELAY,this);this.animationTimer.start();this.motionSpeed = 1;}
     public CanvasComponent(int x, int y, int width, int height){
         this.x = x;
         this.y = y;
@@ -121,7 +68,7 @@ public class CanvasComponent extends JComponent implements MouseListener, MouseM
    
     public void actionPerformed(ActionEvent e){
         Dimension componentSizeDimension = this.getSize();
-     
+    
         if(this.x + this.width > componentSizeDimension.width-this.gutterX){
             this.animationDeltaX = -1*this.animationDeltaX;
             

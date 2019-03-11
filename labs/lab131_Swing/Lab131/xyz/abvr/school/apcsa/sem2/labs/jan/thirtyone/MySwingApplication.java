@@ -26,7 +26,7 @@ public class MySwingApplication extends Object implements SwingConstants, Runnab
         jFrame.add(cc);
         
         jFrame.setVisible(true);
-
+        jFrame.addKeyListener(cc);
         
         
         

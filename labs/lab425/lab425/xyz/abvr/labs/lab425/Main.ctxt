@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=Main
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Main\ here.\r\n\r\n\ @author\ (Alex\ Beaver)\r\n\ @version\ (250419T11\:30)\r\n
+comment1.params=
+comment1.target=Main()
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Main\r\n
+comment2.params=x
+comment2.target=java.lang.Integer\ findMissing(java.util.ArrayList)
+comment3.params=a\ start\ end\ target
+comment3.target=int\ binarySearch(int[],\ int,\ int,\ int)
+comment4.params=a1\ a2\ targ
+comment4.target=int\ findSum(int[],\ int[],\ int)
+comment5.params=param
+comment5.target=java.lang.String\ findFirstRepeating(java.lang.String)
+comment6.params=a1\ a2\ a3
+comment6.target=java.util.ArrayList\ findIntersection(int[],\ int[],\ int[])
+comment7.params=mat
+comment7.target=int[][]\ flipDiagonal(int[][])
+comment8.params=
+comment8.target=void\ main()
+numComments=9

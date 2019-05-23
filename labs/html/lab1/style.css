@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+body{
+
+
+    font-family: 'Open Sans', sans-serif;
+
+
+    background-image: url("https://picsum.photos/1920/1080");
+    text-align: center;
+
+}
+button{
+    width: 72px;
+    height: 36px;
+
+}
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+h1{
+    color: #800813;
+    font-size: 25pt;
+}
+a{
+    color: #ffffff;
+}

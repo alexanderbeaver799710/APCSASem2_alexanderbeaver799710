@@ -1,0 +1,116 @@
+/* CSS Document */
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+/* Color Theme Swatches in Hex */
+/* Color Theme Swatches in RGBA */
+/* Color Theme Swatches in HSLA */
+div {
+  border: none;
+  padding: none; }
+
+body {
+  width: 100%;
+  min-height: 100%;
+  background-color: #21313F;
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+  color: #FFFFFF;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center; }
+
+h1, h2, h3, h4, h5, h6, p {
+  text-align: center; }
+
+h1 {
+  font-size: 72pt; }
+
+h2 {
+  font-size: 36pt; }
+
+h3 {
+  font-size: 24pt; }
+
+a {
+  text-decoration: none;
+  color: #FFFFFF !important; }
+
+a :hover {
+  text-decoration: none;
+  color: #72A1BF !important; }
+
+.header {
+  width: 100%;
+  height: 75vh;
+  color: #72A1BF;
+  display: flex;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center; }
+
+.header-me {
+  background-image: url(https://s3-us-west-2.amazonaws.com/abvr-assets/img/MeAltered.png);
+  background-position: top right; }
+
+.header-main {
+  background-image: url(https://s3-us-west-2.amazonaws.com/abvr-assets/img/amogh-manjunath-775985-unsplash.jpg);
+  background-position: bottom center; }
+
+.header-first {
+  background-image: url(https://s3-us-west-2.amazonaws.com/abvr-assets/img/IMG_4672.JPG); }
+
+.header-website {
+  background-image: url(https://s3-us-west-2.amazonaws.com/abvr-assets/img/brave_AQuvM85lt2.png); }
+
+.header-website-old100 {
+  background-image: url(https://abvr-assets.s3-us-west-2.amazonaws.com/img/brave_IEmOZoFt6K.png); }
+
+.header-frcadmin {
+  background-image: url(https://s3-us-west-2.amazonaws.com/abvr-assets/img/brave_Dq6sbGYLm2.png); }
+
+.darken {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), #21313f);
+  background-position: center bottom;
+  display: flex; }
+
+.darken-inverse {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(#21313f, rgba(0, 0, 0, 0.5));
+  background-position: center bottom;
+  display: flex; }
+
+.header-content {
+  align-self: flex-end; }
+
+.header-content h1, .header-content h2, .header-content h3, .header-content h4, .header-content h5, .header-content h6, .header-content p {
+  text-align: left; }
+
+#nav-button {
+  position: fixed;
+  left: 15px;
+  top: 15px;
+  z-index: 999; }
+
+#loader {
+  width: 100%;
+  height: 100%;
+  position: absolute; }
+
+.foot {
+  font-size: 24pt;
+  height: 100vh; }
+
+.anim-in {
+  opacity: 0; }
+
+@media only screen and (max-height: 1000px) {
+  h1 {
+    font-size: 48pt; }
+
+  h2 {
+    font-size: 24pt; }
+
+  h3 {
+    font-size: 18pt; } }

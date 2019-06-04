@@ -67,6 +67,18 @@ a :hover {
 .header-frcadmin {
   background-image: url(https://s3-us-west-2.amazonaws.com/abvr-assets/img/brave_Dq6sbGYLm2.png); }
 
+.header-gallery-0 {
+  background-image: url(https://abvr-assets.s3-us-west-2.amazonaws.com/img/imggallery/42869334945_10343caa1e_o.png); }
+
+.header-gallery-1 {
+  background-image: url(https://abvr-assets.s3-us-west-2.amazonaws.com/img/imggallery/369A1192-033B-4DDD-A5F1-CA1443E3A916.png); }
+
+.header-gallery-2 {
+  background-image: url(https://abvr-assets.s3-us-west-2.amazonaws.com/img/imggallery/IMG_5850.jpg); }
+
+.header-gallery-3 {
+  background-image: url(https://abvr-assets.s3-us-west-2.amazonaws.com/img/imggallery/IMG_8299.JPG); }
+
 .darken {
   width: 100%;
   height: 100%;
